@@ -24,6 +24,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+const int ALLOWED_UDID_SIZES[2] = {40, 24};
+
 bool is_valid_udid(char* udid) {
     int length = strlen(udid);
     for (int i=0; i < sizeof(ALLOWED_UDID_SIZES); i++) {

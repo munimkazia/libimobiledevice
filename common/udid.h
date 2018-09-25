@@ -24,7 +24,7 @@
 #define __UDID_H
 #include <stdbool.h>
 
-const int ALLOWED_UDID_SIZES[2] = {40, 24};
+const int ALLOWED_UDID_SIZES[2];
 
 bool is_valid_udid(char* udid);
 
