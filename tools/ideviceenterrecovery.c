@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 	}
 
 	i--;
-	if (!argv[i] || (is_valid_udid(strlen(argv[i]))) {
+	if (!argv[i] || (is_valid_udid(strlen(argv[i])))) {
 		print_usage(argc, argv);
 		return 0;
 	}
