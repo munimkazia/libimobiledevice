@@ -28,6 +28,7 @@
 #include <stdlib.h>
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
+#include "common/udid.h"
 
 #define MODE_NONE 0
 #define MODE_SHOW_ID 1
@@ -79,7 +80,7 @@ int main(int argc, char **argv)
 	/* check if udid was passed */
 	if (mode == MODE_SHOW_ID) {
 		i--;
-		if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+		if (!argv[i] || (is_valid_udid(argv[i]))) {
 			print_usage(argc, argv);
 			return 0;
 		}

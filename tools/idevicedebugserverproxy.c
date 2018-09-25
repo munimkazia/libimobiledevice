@@ -34,6 +34,7 @@
 
 #include "common/socket.h"
 #include "common/thread.h"
+#include "common/udid.h"
 
 #define info(...) fprintf(stdout, __VA_ARGS__); fflush(stdout)
 #define debug(...) if(debug_mode) fprintf(stdout, __VA_ARGS__)
@@ -280,7 +281,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return 0;
 			}

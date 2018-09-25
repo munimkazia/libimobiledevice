@@ -32,6 +32,7 @@
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
 #include <libimobiledevice/diagnostics_relay.h>
+#include "common/udid.h"
 
 enum cmd_mode {
 	CMD_NONE = 0,
@@ -79,7 +80,7 @@ int main(int argc, char **argv)
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				result = 0;
 				goto cleanup;

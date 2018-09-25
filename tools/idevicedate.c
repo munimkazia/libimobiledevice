@@ -33,6 +33,8 @@
 
 #include <libimobiledevice/libimobiledevice.h>
 #include <libimobiledevice/lockdown.h>
+#include "common/udid.h"
+
 
 #ifdef _DATE_FMT
 #define DATE_FMT_LANGINFO() nl_langinfo (_DATE_FMT)
@@ -84,7 +86,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return 0;
 			}

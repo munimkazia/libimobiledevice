@@ -40,6 +40,7 @@
 #include <libimobiledevice/lockdown.h>
 #include <libimobiledevice/misagent.h>
 #include "common/utils.h"
+#include "common/udid.h"
 
 static void print_usage(int argc, char **argv)
 {
@@ -299,7 +300,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return 0;
 			}

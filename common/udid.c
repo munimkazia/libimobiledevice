@@ -21,10 +21,12 @@
  */
 
 #include "udid.h"
+#include <string.h>
 
-bool is_valid_udid_size(int udid) {
+bool is_valid_udid(char* udid) {
+    int length = strlen(udid);
     for (int i=0; i < sizeof(ALLOWED_UDID_SIZES); i++) {
-        if (arr[i] == val)
+        if (ALLOWED_UDID_SIZES[i] == length)
             return true;
     }
     return false;

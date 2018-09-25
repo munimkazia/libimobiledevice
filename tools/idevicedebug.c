@@ -41,6 +41,8 @@
 #include <libimobiledevice/debugserver.h>
 #include <plist/plist.h>
 #include "common/debug.h"
+#include "common/udid.h"
+
 
 enum cmd_mode {
 	CMD_NONE = 0,
@@ -233,7 +235,7 @@ int main(int argc, char *argv[])
 			continue;
 		} else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				res = 0;
 				goto cleanup;

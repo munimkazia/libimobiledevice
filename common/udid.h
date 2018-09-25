@@ -25,6 +25,6 @@
 
 const int ALLOWED_UDID_SIZES = [40, 24];
 
-bool is_valid_udid_size(int udid);
+bool is_valid_udid(char* udid);
 
 #endif  /* __UDID_H */

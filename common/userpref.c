@@ -61,7 +61,6 @@
 #include "userpref.h"
 #include "debug.h"
 #include "utils.h"
-#include "udid.h"
 
 #ifndef HAVE_OPENSSL
 const ASN1_ARRAY_TYPE pkcs1_asn1_tab[] = {

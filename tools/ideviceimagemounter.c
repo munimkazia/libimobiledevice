@@ -42,6 +42,7 @@
 #include <libimobiledevice/mobile_image_mounter.h>
 #include <asprintf.h>
 #include "common/utils.h"
+#include "common/udid.h"
 
 static int list_mode = 0;
 static int xml_mode = 0;
@@ -98,7 +99,7 @@ static void parse_opts(int argc, char **argv)
 			print_usage(argc, argv);
 			exit(0);
 		case 'u':
-			if (is_valid_udid_size(strlen(optarg))) {
+			if (is_valid_udid(optarg)) {
 				printf("%s: invalid UDID specified (length != 40 or 24 )\n",
 					   argv[0]);
 				print_usage(argc, argv);

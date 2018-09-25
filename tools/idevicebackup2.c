@@ -43,6 +43,7 @@
 #include <libimobiledevice/installation_proxy.h>
 #include <libimobiledevice/sbservices.h>
 #include "common/utils.h"
+#include "common/udid.h"
 
 #include <endianness.h>
 
@@ -1369,7 +1370,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return -1;
 			}
@@ -1378,7 +1379,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-s") || !strcmp(argv[i], "--source")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return -1;
 			}

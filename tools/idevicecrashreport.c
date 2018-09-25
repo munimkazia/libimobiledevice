@@ -34,6 +34,8 @@
 #include <libimobiledevice/lockdown.h>
 #include <libimobiledevice/libimobiledevice.h>
 #include <plist/plist.h>
+#include "common/udid.h"
+
 
 #ifdef WIN32
 #include <windows.h>
@@ -327,7 +329,7 @@ int main(int argc, char* argv[]) {
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid_size(strlen(argv[i])))) {
+			if (!argv[i] || (is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return 0;
 			}
