@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 	/* check if udid was passed */
 	if (mode == MODE_SHOW_ID) {
 		i--;
-		if (!argv[i] || (is_valid_udid(argv[i]))) {
+		if (!argv[i] || (!is_valid_udid(argv[i]))) {
 			print_usage(argc, argv);
 			return 0;
 		}

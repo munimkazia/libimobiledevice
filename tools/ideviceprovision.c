@@ -300,7 +300,7 @@ int main(int argc, char *argv[])
 		}
 		else if (!strcmp(argv[i], "-u") || !strcmp(argv[i], "--udid")) {
 			i++;
-			if (!argv[i] || (is_valid_udid(argv[i]))) {
+			if (!argv[i] || (!is_valid_udid(argv[i]))) {
 				print_usage(argc, argv);
 				return 0;
 			}
