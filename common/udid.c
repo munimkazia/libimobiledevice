@@ -22,6 +22,7 @@
 
 #include "udid.h"
 #include <string.h>
+#include <stdbool.h>
 
 bool is_valid_udid(char* udid) {
     int length = strlen(udid);
