@@ -61,6 +61,7 @@
 #include "userpref.h"
 #include "debug.h"
 #include "utils.h"
+#include "udid.h"
 
 #ifndef HAVE_OPENSSL
 const ASN1_ARRAY_TYPE pkcs1_asn1_tab[] = {
@@ -235,14 +236,14 @@ userpref_error_t userpref_get_paired_udids(char ***list, unsigned int *count)
 		struct slist_t *listp = udids;
 		while ((entry = readdir(config_dir))) {
 			char *ext = strstr(entry->d_name, USERPREF_CONFIG_EXTENSION);
-			udid_size = 0
+			udid_size = 0;
 			for (unsigned int j=0; j<sizeof(ALLOWED_UDID_SIZES); j++) {
 				int current_size = ALLOWED_UDID_SIZES[j];
 				if (ext && ((ext - entry->d_name) == current_size) && (strlen(entry->d_name) == (current_size + strlen(ext)))) {
 					udid_size = current_size;
 				}
 			}
-			if udid_size > 0 {				
+			if (udid_size > 0) {				
 				struct slist_t *ne = (struct slist_t*)malloc(sizeof(struct slist_t));
 				ne->name = (char*)malloc(udid_size + 1);
 				strncpy(ne->name, entry->d_name, udid_size);

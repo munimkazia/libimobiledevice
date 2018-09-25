@@ -11,7 +11,8 @@ libinternalcommon_la_SOURCES = \
 		       thread.c thread.h \
 		       debug.c debug.h \
 		       userpref.c userpref.h \
-		       utils.c utils.h
+		       utils.c utils.h \
+               udid.c udid.h
 
 if WIN32
 libinternalcommon_la_LIBADD += -lole32 -lws2_32
