@@ -63,7 +63,7 @@ static void print_usage(int argc, char **argv)
 	name = strrchr(argv[0], '/');
 	printf("Usage: %s [OPTIONS] IMAGE_FILE IMAGE_SIGNATURE_FILE\n\n", (name ? name + 1: argv[0]));
 	printf("Mounts the specified disk image on the device.\n\n");
-	printf("  -u, --udid UDID\ttarget specific device by its 40-digit device UDID\n");
+	printf("  -u, --udid UDID\ttarget specific device by its 40-digit or 24-digit device UDID\n");
 	printf("  -l, --list\t\tList mount information\n");
 	printf("  -t, --imagetype\tImage type to use, default is 'Developer'\n");
 	printf("  -x, --xml\t\tUse XML output\n");
@@ -98,8 +98,8 @@ static void parse_opts(int argc, char **argv)
 			print_usage(argc, argv);
 			exit(0);
 		case 'u':
-			if (strlen(optarg) != 40) {
-				printf("%s: invalid UDID specified (length != 40)\n",
+			if (is_valid_udid_size(strlen(optarg))) {
+				printf("%s: invalid UDID specified (length != 40 or 24 )\n",
 					   argv[0]);
 				print_usage(argc, argv);
 				exit(2);
