@@ -729,8 +729,13 @@ LIBIMOBILEDEVICE_API lockdownd_error_t lockdownd_client_new_with_handshake(idevi
 	if (LOCKDOWN_E_SUCCESS == ret && !pair_record) {
 		/* attempt pairing */
 		ret = lockdownd_pair(client_loc, NULL);
-	}
+		userpref_read_pair_record(client_loc->udid, &pair_record);
+		if (pair_record) {
+			pair_record_get_host_id(pair_record, &host_id);
+		}
 
+	}
+	
 	if (LOCKDOWN_E_SUCCESS == ret && !host_id) {
 		ret = LOCKDOWN_E_INVALID_CONF;
 	}
