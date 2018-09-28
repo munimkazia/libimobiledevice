@@ -1002,8 +1002,9 @@ static lockdownd_error_t lockdownd_do_pair(lockdownd_client_t client, lockdownd_
 						plist_free(wifi_node);
 						wifi_node = NULL;
 					}
-
+					debug_info("Munim before pair");
 					userpref_save_pair_record(client->udid, pair_record_plist);
+					debug_info("Munim after pair");
 				}
 			}
 		} else {
