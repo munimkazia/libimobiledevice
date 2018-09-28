@@ -730,6 +730,7 @@ LIBIMOBILEDEVICE_API lockdownd_error_t lockdownd_client_new_with_handshake(idevi
 		/* attempt pairing */
 		ret = lockdownd_pair(client_loc, NULL);
 		userpref_read_pair_record(client_loc->udid, &pair_record);
+		debug_info("Munim reached here inside %s %s", client_loc->udid, pair_record);
 		if (pair_record) {
 			pair_record_get_host_id(pair_record, &host_id);
 		}
