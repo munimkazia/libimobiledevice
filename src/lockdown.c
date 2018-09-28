@@ -725,7 +725,7 @@ LIBIMOBILEDEVICE_API lockdownd_error_t lockdownd_client_new_with_handshake(idevi
 	if (pair_record) {
 		pair_record_get_host_id(pair_record, &host_id);
 	}
-	debug_info("Munim reached here %d %s %s", ret, host_id, device->version);
+	debug_info("Munim reached here %d %s %d", ret, host_id, device->version);
 	if (LOCKDOWN_E_SUCCESS == ret && !host_id) {
 		ret = LOCKDOWN_E_INVALID_CONF;
 	}
